@@ -65,12 +65,12 @@
                 <!-- Contatti -->
                 <div class="contacts">
 
-                    <div v-for="(contact, index) in contacts" class="contact flex">
+                    <div v-for="(contact, index) in contacts" class="contact flex" @click="getUserName(contact, index)">
                         <div class="avatar ml">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="avatar utente">
                         </div>
                         <div class="contact-info flex flex-column ml-30">
-                            <p class="user-name" @click="lastMessage(contact, index)">{{contact.name}}</p>
+                            <p class="user-name" id="userName" @click="lastMessage(contact, index)">{{contact.name}}</p>
                             <p class="last-message" v-if="checkStatus(contact, index) == 'received'">{{lastMessage(contact, index)}}</p>
                             <p class="last-message" v-else>
                                 <i class="fas fa-check-double"></i>
@@ -89,10 +89,10 @@
                 <div class="header head-chat">
                     <div class="user-info flex">
                         <div class="avatar ml">
-                            <img src="img/avatar_1.jpg" alt="avatar utente">
+                            <img :src="'img/avatar' + activeAvatar + '.jpg'" alt="avatar utente">
                         </div>
                         <div class="name ml">
-                            <p class="user-name">Michele</p>
+                            <p class="user-name">{{ activeChat }}</p>
                             <p class="last-access">Ultimo accesso: </p>
                         </div>
                     </div>
@@ -105,7 +105,8 @@
 
                 <div class="body-chat flex flex-column clearfix">
                     <div class="new-message message-receveid">
-                        <p>Lorem</p>
+                        
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem eligendi dolorem illo aliquam vero. Ducimus recusandae cum perspiciatis necessitatibus laudantium facere iusto fugit. Numquam commodi quod consequatur error repellat quibusdam!</p>
                     </div>
                     <div class="new-message message-sent">
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus, voluptatem blanditiis laboriosam natus eaque dolorem itaque ipsa voluptates architecto tempora aspernatur magni provident aliquam reiciendis quibusdam eligendi tempore deleniti saepe.</p>

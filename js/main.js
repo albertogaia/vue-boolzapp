@@ -3,6 +3,8 @@ Vue.config.devtools = true;
 const app = new Vue({
     el: '#root',
     data: {
+        activeChat: 'Michele',
+        activeAvatar: '_1',
         contacts: [
             {
                 name: 'Michele',
@@ -106,5 +108,12 @@ const app = new Vue({
             // console.log(statusMessage[parseInt(statusMessage.length - 1)].status)
             return statusMessage[parseInt(statusMessage.length - 1)].status
         },
+        getUserName(e,i){
+            let userName = this.contacts[i].name;
+            this.activeChat = userName;
+            // return activeChat
+            let userAvatar = this.contacts[i].avatar;
+            this.activeAvatar = userAvatar;
+        }
     },
 })

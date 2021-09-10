@@ -69,9 +69,9 @@ body{font-family: 'Lato', sans-serif;}
 /* Body Chat */
 .body-chat {width: 100%; height: calc(100% - 80px - 80px); background-image: url('../img/mine.jpg');}
 
-.new-message{ padding: 15px 20px; margin: 15px; width: max-content; font-weight: 400; max-width: 50%;}
+.new-message{ padding: 15px 20px; margin: 15px; width: max-content; font-weight: 400; max-width: 70%;}
 .message-receveid{background-color: white; align-self: flex-start; border-radius: 20px 20px 20px 0px;}
-.message-sent{background-color: rgb(114, 182, 114); align-self: end; border-radius: 20px 20px 0px 20px;}
+.message-sent{background-color: #b4d39d; align-self: end; border-radius: 20px 20px 0px 20px;}
 
 /* Input Chat */
 .input-chat{height: 80px; background-color: #ede9e4; width: 100%; align-items: center;}
