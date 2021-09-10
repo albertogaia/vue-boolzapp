@@ -65,7 +65,8 @@ const app = new Vue({
                         date: '28/03/2020 16:15:22',
                         message: 'Ah scusa!',
                         status: 'received'
-                    }
+                    },
+                    
                 ],
             },
             {
@@ -93,7 +94,7 @@ const app = new Vue({
     },
     methods: {
         lastMessage(e,i){
-            let arrayMessage = this.contacts[i].messages
+            let arrayMessage = this.contacts[i].messages;
             // console.log(this.contacts[i].messages[parseInt(this.contacts[i].messages.length - 1)].message);
 
             // console.log(arrayMessage[parseInt(arrayMessage.length - 1)].message);
