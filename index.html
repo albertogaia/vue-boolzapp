@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>Vue Boolzapp</title>
 </head>
@@ -16,40 +18,93 @@
 
             <!-- PARTE SINISTRA -->
             <div class="side side-left">
+
                 <div class="header head-left">
-
+                    <div class="user-info flex">
+                        <div class="avatar ml">
+                            <img src="img/avatar_io.jpg" alt="avatar utente">
+                        </div>
+                        <div class="name ml">
+                            <p class="user-name">Alberto Gaia</p>
+                        </div>
+                    </div>
+                    <div class="user-actions mr flex">
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="fas fa-comment-alt"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
                 </div>
+
                 <div class="notification">
+                    <div class="icon-notify ml">
+                        <i class="fas fa-bell-slash"></i>
+                    </div>
+                    <div class="txt-notify ml">
+                        <p class="user-name">Ricevi notifiche di nuovi messaggi</p>
+                        <p class="txt-underline">Attiva notifiche desktop</p>
+                    </div>
 
                 </div>
-                <div class="search-contact">
 
+                <div class="search-contact flex">
+                    <div class="input-search flex ml mr">
+                        <div class="icon-search-contact">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="input-search-contact">
+                            <input type="text" placeholder="Cerca o inizia una nuova chat">
+                        </div>
+                    </div>
                 </div>
+
                 <div class="contacts">
-                    <div class="contact">
-                        
+
+                    <div class="contact flex">
+                        <div class="avatar ml">
+                            <img src="img/avatar_1.jpg" alt="avatar utente">
+                        </div>
+                        <div class="contact-info flex flex-column ml-30">
+                            <p class="user-name">Michele</p>
+                            <p class="last-message">Ciao</p>
+                        </div>
                     </div>
-                    <div class="contact">
-                        
+                    <div class="contact flex">
+                        <div class="avatar ml">
+                            <img src="img/avatar_2.jpg" alt="avatar utente">
+                        </div>
+                        <div class="contact-info flex flex-column ml-30">
+                            <p class="user-name">Michele</p>
+                            <p class="last-message">Ciao</p>
+                        </div>
                     </div>
-                    <div class="contact">
-                        
+                    <div class="contact flex">
+                        <div class="avatar ml">
+                            <img src="img/avatar_3.jpg" alt="avatar utente">
+                        </div>
+                        <div class="contact-info flex flex-column ml-30">
+                            <p class="user-name">Michele</p>
+                            <p class="last-message"></p>
+                        </div>
                     </div>
-                    <div class="contact">
-                        
+                    <div class="contact flex">
+                        <div class="avatar ml">
+                            <img src="img/avatar_4.jpg" alt="avatar utente">
+                        </div>
+                        <div class="contact-info flex flex-column ml-30">
+                            <p class="user-name">Michele</p>
+                            <p class="last-message"></p>
+                        </div>
                     </div>
-                    <div class="contact">
-                        
+                    <div class="contact flex">
+                        <div class="avatar ml">
+                            <img src="img/avatar_5.jpg" alt="avatar utente">
+                        </div>
+                        <div class="contact-info flex flex-column ml-30">
+                            <p class="user-name">Michele</p>
+                            <p class="last-message"></p>
+                        </div>
                     </div>
-                    <div class="contact">
-                        
-                    </div>
-                    <div class="contact">
-                        
-                    </div>
-                    <div class="contact">
-                        
-                    </div>
+                    
                 </div>
             </div>
             <!-- / PARTE SINISTRA -->
