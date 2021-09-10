@@ -81,9 +81,29 @@ const app = new Vue({
                         date: '10/01/2020 15:50:00',
                         message: 'Si, ma preferirei andare al cinema',
                         status: 'received'
+                    },
+                    {
+                        date: '10/01/2020 15:53:00',
+                        message: 'Ok come preferisci',
+                        status: 'sent'
                     }
                 ],
             },
         ]
+    },
+    methods: {
+        lastMessage(e,i){
+            let arrayMessage = this.contacts[i].messages
+            // console.log(this.contacts[i].messages[parseInt(this.contacts[i].messages.length - 1)].message);
+
+            // console.log(arrayMessage[parseInt(arrayMessage.length - 1)].message);
+            return arrayMessage[parseInt(arrayMessage.length - 1)].message
+        },
+        checkStatus(e,i){
+            let statusMessage = this.contacts[i].messages;
+
+            // console.log(statusMessage[parseInt(statusMessage.length - 1)].status)
+            return statusMessage[parseInt(statusMessage.length - 1)].status
+        },
     },
 })

@@ -56,6 +56,8 @@ body{font-family: 'Lato', sans-serif;}
 .contact-info{height: 100%; justify-content: center;}
 .last-message{margin-top: 15px; font-weight: 300; color:rgb(176, 176, 176);}
 
+.fas.fa-check-double {color: rgb(64, 168, 224); font-weight: 600; margin-right: 5px;}
+
 /* Header Chat */
 .last-access{color: rgb(165, 165, 165); font-weight: 300; font-size: 14px;}
 
