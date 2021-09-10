@@ -65,49 +65,13 @@
                 <!-- Contatti -->
                 <div class="contacts">
 
-                    <div class="contact flex">
+                    <div v-for="(contact, index) in contacts" class="contact flex">
                         <div class="avatar ml">
-                            <img src="img/avatar_1.jpg" alt="avatar utente">
+                            <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="avatar utente">
                         </div>
                         <div class="contact-info flex flex-column ml-30">
-                            <p class="user-name">Michele</p>
-                            <p class="last-message">Ciao</p>
-                        </div>
-                    </div>
-                    <div class="contact flex">
-                        <div class="avatar ml">
-                            <img src="img/avatar_2.jpg" alt="avatar utente">
-                        </div>
-                        <div class="contact-info flex flex-column ml-30">
-                            <p class="user-name">Michele</p>
-                            <p class="last-message">Ciao</p>
-                        </div>
-                    </div>
-                    <div class="contact flex">
-                        <div class="avatar ml">
-                            <img src="img/avatar_3.jpg" alt="avatar utente">
-                        </div>
-                        <div class="contact-info flex flex-column ml-30">
-                            <p class="user-name">Michele</p>
-                            <p class="last-message"></p>
-                        </div>
-                    </div>
-                    <div class="contact flex">
-                        <div class="avatar ml">
-                            <img src="img/avatar_4.jpg" alt="avatar utente">
-                        </div>
-                        <div class="contact-info flex flex-column ml-30">
-                            <p class="user-name">Michele</p>
-                            <p class="last-message"></p>
-                        </div>
-                    </div>
-                    <div class="contact flex">
-                        <div class="avatar ml">
-                            <img src="img/avatar_5.jpg" alt="avatar utente">
-                        </div>
-                        <div class="contact-info flex flex-column ml-30">
-                            <p class="user-name">Michele</p>
-                            <p class="last-message"></p>
+                            <p class="user-name">{{contact.name}}</p>
+                            <p class="last-message">Placeholder text</p>
                         </div>
                     </div>
                     
@@ -134,9 +98,11 @@
                         <i class="fas fa-ellipsis-v icon"></i>
                     </div>
                 </div>
-                <div class="body-chat">
 
+                <div class="body-chat">
+                    
                 </div>
+
                 <div class="input-chat flex">
                     <div class="input-chat-container flex ml mr">
                         <div class="icon-emoji">
