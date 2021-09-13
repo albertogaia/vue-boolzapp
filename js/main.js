@@ -9,6 +9,7 @@ const app = new Vue({
         lastTime: '',
         newMessage: '',
         search: '',
+        myElement: 0,
         contacts: [
             {
                 name: 'Michele',
@@ -155,14 +156,52 @@ const app = new Vue({
 
             listMessages.push(newMessageReceived);
             
-        }
+        },
+
+        messageID(e,i){
+            return 'message-' + i;
+        },
+
+        openMenu(e,i){
+            let myElement = document.getElementById('message-' + this.messageID(e,i));
+            let displayBlockList = myElement.children[0].lastChild;
+    
+            let iconElement = myElement.children[0].children[1]
+            console.log(myElement.children[0].children[1])
+
+            if(displayBlockList.style.display == ''){
+                displayBlockList.style.display = 'block';
+                console.log(displayBlockList.classList)
+                iconElement.classList.replace("fa-chevron-down", "fa-chevron-up");
+                
+
+            }else {
+                displayBlockList.style.display = '';
+                iconElement.classList.replace("fa-chevron-up", "fa-chevron-down");
+
+            }
+        },
+        // closeMenu(e,i){
+        //     let myElements = document.querySelectorAll('#options-list')
+
+        //     // iconElement.classList.replace("fa-chevron-up", "fa-chevron-down")
+        //     myElements.forEach(element => {
+        //         element.style.display = ''
+        //     });
+        // },
+
+        deleteMessage(e,i){
+            this.activeChat.messages.splice(i, 1);
+        },
         
     },
+
     mounted() {
         this.activeChat = this.contacts[0],
         this.lastActivity = this.contacts[0].messages[parseInt(this.contacts[0].messages.length - 1)].date
 
     },
+
     computed: {
         filteredList() {
           return this.contacts.filter(contact => {

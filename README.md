@@ -31,7 +31,7 @@ contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> 
 “mar” rimangono solo Marco e Martina)
 
 
-⭕️  Milestone 5 - opzionale:
+✅  Milestone 5 - opzionale:
 
 • Cancella messaggio: cliccando sul messaggio appare un menu a tendina che
 permette di cancellare il messaggio selezionato

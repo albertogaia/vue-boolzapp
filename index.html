@@ -108,10 +108,17 @@
 
 
                 <div class="flex flex-column clearfix" id="body-chat">
-                    <div v-for="(messaggio) in activeChat.messages" v-bind:class="(messaggio.status == 'sent') ? 'message-sent' : 'message-received'" class="new-message">
+                    <div v-for="(messaggio, index) in activeChat.messages" v-bind:class="(messaggio.status == 'sent') ? 'message-sent' : 'message-received'" class="new-message"  :id="'message-' + messageID(messaggio,index)">
                         <div class="option-message">
                             <p>{{ messaggio.message }}</p>
-                            <i class="fas fa-chevron-down"></i>
+                            <i class="fas fa-chevron-down" @click="openMenu(messaggio,index)"></i>
+                            <div id="options-list">
+                                <ul>
+                                    <li>Inoltra</li>
+                                    <li @click="deleteMessage(messaggio, index)" >Elimina</li>
+                                    <li>Informazioni</li>
+                                </ul>
+                            </div>
                         </div>  
                         
                         <div class="date-message">
