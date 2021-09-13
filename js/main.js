@@ -103,7 +103,7 @@ const app = new Vue({
         },
         lastSeen(e,i){
             let userLastActivity = this.contacts[i].messages[parseInt(this.contacts[i].messages.length - 1)].date;
-            this.lastTime = userLastActivity;
+            return this.lastTime = userLastActivity;
         },
         checkStatus(e,i){
             let statusMessage = this.contacts[i].messages;
@@ -126,7 +126,7 @@ const app = new Vue({
             let listMessages = this.activeChat.messages;
 
             let messageObject = {
-                date: dayjs().date() + '/' + (dayjs().month() + 1) + '/' + dayjs().year() + '  ' + dayjs().hour() + ':' + dayjs().minute() + ':' + dayjs().second(),
+                date: dayjs().hour() + ':' + dayjs().minute(),
                 message: this.newMessage,
                 status: 'sent',
             }
@@ -148,7 +148,7 @@ const app = new Vue({
             let listMessages = this.activeChat.messages;
 
             let newMessageReceived = {
-                date: dayjs().date() + '/' + (dayjs().month() + 1) + '/' + dayjs().year() + '  ' + dayjs().hour() + ':' + dayjs().minute() + ':' + dayjs().second(),
+                date: dayjs().hour() + ':' + dayjs().minute(),
                 message: 'ok',
                 status: 'received'
             }
