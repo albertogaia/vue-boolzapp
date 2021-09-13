@@ -8,6 +8,7 @@ const app = new Vue({
         lastActivity: '',
         lastTime: '',
         newMessage: '',
+        search: '',
         contacts: [
             {
                 name: 'Michele',
@@ -162,4 +163,11 @@ const app = new Vue({
         this.lastActivity = this.contacts[0].messages[parseInt(this.contacts[0].messages.length - 1)].date
 
     },
+    computed: {
+        filteredList() {
+          return this.contacts.filter(contact => {
+            return contact.name.toLowerCase().includes(this.search.toLowerCase())
+          })
+        }
+    }
 })

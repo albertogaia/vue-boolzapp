@@ -56,7 +56,7 @@
                             <i class="fas fa-search"></i>
                         </div>
                         <div class="input-txt">
-                            <input type="text" placeholder="Cerca o inizia una nuova chat">
+                            <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="search">
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                 <!-- Contatti -->
                 <div class="contacts">
 
-                    <div v-for="(contact, index) in contacts" class="contact flex" @click="getUserName(contact, index)">
+                    <div v-for="(contact, index) in filteredList" class="contact flex" @click="getUserName(contact, index)">
                         <div class="avatar ml">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="avatar utente">
                         </div>
