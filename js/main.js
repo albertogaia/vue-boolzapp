@@ -3,8 +3,9 @@ Vue.config.devtools = true;
 const app = new Vue({
     el: '#root',
     data: {
-        activeChat: 'Michele',
-        activeAvatar: '_1',
+        activeChat: '',
+        activeAvatar: '',
+        lastActivity: '',
         contacts: [
             {
                 name: 'Michele',
@@ -63,11 +64,6 @@ const app = new Vue({
                         message: 'Sicuro di non aver sbagliato chat?',
                         status: 'sent'
                     },
-                    {
-                        date: '28/03/2020 16:15:22',
-                        message: 'Ah scusa!',
-                        status: 'received'
-                    },
                     
                 ],
             },
@@ -109,11 +105,25 @@ const app = new Vue({
             return statusMessage[parseInt(statusMessage.length - 1)].status
         },
         getUserName(e,i){
-            let userName = this.contacts[i].name;
+            let userName = this.contacts[i];
             this.activeChat = userName;
             // return activeChat
-            let userAvatar = this.contacts[i].avatar;
+            let userAvatar = this.contacts[i];
             this.activeAvatar = userAvatar;
-        }
+
+            let userLastActivity = this.contacts[i].messages[parseInt(this.contacts[i].messages.length - 1)].date;
+            this.lastActivity = userLastActivity;
+
+        },
+        arrayMessages(){
+            
+            
+        },
+        
+    },
+    mounted() {
+        this.activeChat = this.contacts[0],
+        this.lastActivity = this.contacts[0].messages[parseInt(this.contacts[0].messages.length - 1)].date
+
     },
 })

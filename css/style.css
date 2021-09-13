@@ -56,9 +56,10 @@ body{font-family: 'Lato', sans-serif;}
 
 /* Contacts */
 .contacts{max-height: calc(100% - 80px - 80px - 50px);background-color: white;overflow-y: scroll;}
-.contact {height: 100px; align-items: center; border-bottom: 1px solid rgb(230, 230, 230);}
+.contact {position: relative; height: 100px; align-items: center; border-bottom: 1px solid rgb(230, 230, 230);}
 .contact:hover{background-color: rgb(237, 237, 237); cursor: pointer;}
-.contact-info{height: 100%; justify-content: center;}
+.contact-info{height: 100%; justify-content: center; position: relative;}
+.contact .last-access{position: absolute; right: 10px; top: 25%; font-size: 12px;}
 .last-message{margin-top: 15px; font-weight: 300; color:rgb(176, 176, 176);}
 
 .fas.fa-check-double {color: rgb(64, 168, 224); font-weight: 600; margin-right: 5px;}
@@ -70,8 +71,12 @@ body{font-family: 'Lato', sans-serif;}
 .body-chat {width: 100%; height: calc(100% - 80px - 80px); background-image: url('../img/mine.jpg');}
 
 .new-message{ padding: 15px 20px; margin: 15px; width: max-content; font-weight: 400; max-width: 70%;}
-.message-receveid{background-color: white; align-self: flex-start; border-radius: 20px 20px 20px 0px;}
+.message-received{background-color: white; align-self: flex-start; border-radius: 20px 20px 20px 0px;}
 .message-sent{background-color: #b4d39d; align-self: end; border-radius: 20px 20px 0px 20px;}
+.time-message{display: block; font-size: 11px; color: rgb(126, 126, 126); text-align: right; font-weight: 300;}
+.option-message{position: relative; display: flex; justify-content: space-between;}
+.option-message > i {visibility: hidden; filter: brightness(0.4); cursor: pointer; margin-left: 30px;}
+.new-message:hover i {visibility: visible;}
 
 /* Input Chat */
 .input-chat{height: 80px; background-color: #ede9e4; width: 100%; align-items: center;}

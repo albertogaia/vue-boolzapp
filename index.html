@@ -70,13 +70,15 @@
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="avatar utente">
                         </div>
                         <div class="contact-info flex flex-column ml-30">
-                            <p class="user-name" id="userName" @click="lastMessage(contact, index)">{{contact.name}}</p>
+                            <p class="user-name" id="userName" @click="lastMessage(contact, index)"><span>{{contact.name}}</span></p>
                             <p class="last-message" v-if="checkStatus(contact, index) == 'received'">{{lastMessage(contact, index)}}</p>
                             <p class="last-message" v-else>
                                 <i class="fas fa-check-double"></i>
                                 {{lastMessage(contact, index)}}
                             </p>
                         </div>
+                        <span class="last-access">{{lastActivity}}</span>
+
                     </div>
                     
                 </div>
@@ -86,14 +88,14 @@
 
             <!-- PARTE DESTRA -->
             <div class="side side-right">
-                <div class="header head-chat">
+                <div class="header head-chat" @click="arrayMessages()">
                     <div class="user-info flex">
                         <div class="avatar ml">
-                            <img :src="'img/avatar' + activeAvatar + '.jpg'" alt="avatar utente">
+                            <img :src="'img/avatar' + activeChat.avatar + '.jpg'" alt="avatar utente">
                         </div>
                         <div class="name ml">
-                            <p class="user-name">{{ activeChat }}</p>
-                            <p class="last-access">Ultimo accesso: </p>
+                            <p class="user-name">{{ activeChat.name }}</p>
+                            <p class="last-access">Ultimo accesso: {{lastActivity}}</p>
                         </div>
                     </div>
                     <div class="user-actions mr flex">
@@ -103,14 +105,17 @@
                     </div>
                 </div>
 
+
+
                 <div class="body-chat flex flex-column clearfix">
-                    <div class="new-message message-receveid">
+                    <div v-for="(messaggio) in activeChat.messages" v-bind:class="(messaggio.status == 'sent') ? 'message-sent' : 'message-received'" class="new-message">
+                        <div class="option-message">
+                            <p>{{ messaggio.message }}</p>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>  
                         
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem eligendi dolorem illo aliquam vero. Ducimus recusandae cum perspiciatis necessitatibus laudantium facere iusto fugit. Numquam commodi quod consequatur error repellat quibusdam!</p>
-                    </div>
-                    <div class="new-message message-sent">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus, voluptatem blanditiis laboriosam natus eaque dolorem itaque ipsa voluptates architecto tempora aspernatur magni provident aliquam reiciendis quibusdam eligendi tempore deleniti saepe.</p>
-                    </div>
+                        <div class="date-message"> <span class="time-message">{{messaggio.date}}</span></div>
+                    </div>     
                 </div>
 
                 <div class="input-chat flex">
