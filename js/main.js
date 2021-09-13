@@ -10,6 +10,9 @@ const app = new Vue({
         newMessage: '',
         search: '',
         myElement: 0,
+        messagesRnd: [
+            'Certo!', 'Ok', 'Ahahah 😂', 'Bellissima app, complimenti! 💪🏻','Come stai?', 'Non mi interessa 😁', 'Ehy amico vuoi una penna?', 'Vida locaaa 🎉', 'Stasera si beve 🔥'
+        ],
         contacts: [
             {
                 name: 'Michele',
@@ -97,9 +100,7 @@ const app = new Vue({
     methods: {
         lastMessage(e,i){
             let arrayMessage = this.contacts[i].messages;
-            // console.log(this.contacts[i].messages[parseInt(this.contacts[i].messages.length - 1)].message);
 
-            // console.log(arrayMessage[parseInt(arrayMessage.length - 1)].message);
             return arrayMessage[parseInt(arrayMessage.length - 1)].message
         },
         lastSeen(e,i){
@@ -109,19 +110,19 @@ const app = new Vue({
         checkStatus(e,i){
             let statusMessage = this.contacts[i].messages;
 
-            // console.log(statusMessage[parseInt(statusMessage.length - 1)].status)
             return statusMessage[parseInt(statusMessage.length - 1)].status
         },
         getUserName(e,i){
             let userName = this.contacts[i];
             this.activeChat = userName;
-            // return activeChat
+
             let userAvatar = this.contacts[i];
             this.activeAvatar = userAvatar;
 
             let userLastActivity = this.contacts[i].messages[parseInt(this.contacts[i].messages.length - 1)].date;
             this.lastActivity = userLastActivity;
         },
+
         submitMessage(){
 
             let listMessages = this.activeChat.messages;
@@ -137,12 +138,14 @@ const app = new Vue({
                 this.newMessage = "";
             }
 
-            setInterval(this.updateScroll, 100)
             setTimeout(this.receiveMessage, 2000);
+            this.updateScroll();
+
         },
         updateScroll(){
             var element = document.getElementById("body-chat");
-            element.scrollTop = element.scrollHeight - element.clientHeight
+            element.scrollTop = element.scrollHeight - element.clientHeight + 100
+            // console.log(element.scrollTop)
         },
 
         receiveMessage(){
@@ -150,12 +153,12 @@ const app = new Vue({
 
             let newMessageReceived = {
                 date: dayjs().hour() + ':' + dayjs().minute(),
-                message: 'ok',
+                message: this.messagesRnd[this.getRandomMsg(0,this.messagesRnd.length - 1)],
                 status: 'received'
             }
 
             listMessages.push(newMessageReceived);
-            
+            this.updateScroll();
         },
 
         messageID(e,i){
@@ -181,25 +184,30 @@ const app = new Vue({
 
             }
         },
-        // closeMenu(e,i){
-        //     let myElements = document.querySelectorAll('#options-list')
 
-        //     // iconElement.classList.replace("fa-chevron-up", "fa-chevron-down")
-        //     myElements.forEach(element => {
-        //         element.style.display = ''
-        //     });
-        // },
 
         deleteMessage(e,i){
             this.activeChat.messages.splice(i, 1);
         },
+
+        getRandomMsg(min, max){
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        },
+
+        closeMenu(e,i){
+            let myElements = document.querySelectorAll('#options-list')
+        
+            // iconElement.classList.replace("fa-chevron-up", "fa-chevron-down")
+            myElements.forEach(element => {
+                element.style.display = ''
+            });
+        }
         
     },
 
     mounted() {
         this.activeChat = this.contacts[0],
         this.lastActivity = this.contacts[0].messages[parseInt(this.contacts[0].messages.length - 1)].date
-
     },
 
     computed: {
@@ -210,3 +218,14 @@ const app = new Vue({
         }
     }
 })
+
+
+
+// window.addEventListener('click', ()=>{
+//     let myElements = document.querySelectorAll('#options-list')
+
+//     // iconElement.classList.replace("fa-chevron-up", "fa-chevron-down")
+//     myElements.forEach(element => {
+//         element.style.display = ''
+//     });
+// })

@@ -35,3 +35,19 @@ contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> 
 
 • Cancella messaggio: cliccando sul messaggio appare un menu a tendina che
 permette di cancellare il messaggio selezionato
+
+
+✅  [BONUS]
+
+. Aggiunto hover e active chat nella lista dei contatti a sinistra
+
+• Creato array di messaggi che vengono inviati in ordine casuale
+
+
+⭕️ [FIXARE]
+
+• Scroll in automatico all'ultimo messaggio. Adesso scrolla fino al penultimo
+
+• Al cambio dei click per eliminare il messaggio, chiudere il menù a tendina precedente
+
+

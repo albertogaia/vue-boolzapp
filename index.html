@@ -14,7 +14,7 @@
 <body class="debug">
     <div class="container" id="root">
 
-        <div class="wrapper">
+        <div class="wrapper" onclick="">
 
             <!-- PARTE SINISTRA -->
             <div class="side side-left">
@@ -65,7 +65,7 @@
                 <!-- Contatti -->
                 <div class="contacts">
 
-                    <div v-for="(contact, index) in filteredList" class="contact flex" @click="getUserName(contact, index)">
+                    <div v-for="(contact, index) in filteredList" class="contact flex" @click="[getUserName(contact, index), myFilter(contact,index)]" :class="(contact == activeChat) ? 'active-chat' : null" >
                         <div class="avatar ml">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="avatar utente">
                         </div>
@@ -107,8 +107,8 @@
 
 
 
-                <div class="flex flex-column clearfix" id="body-chat">
-                    <div v-for="(messaggio, index) in activeChat.messages" v-bind:class="(messaggio.status == 'sent') ? 'message-sent' : 'message-received'" class="new-message"  :id="'message-' + messageID(messaggio,index)">
+                <div class="flex flex-column" id="body-chat">
+                    <div v-for="(messaggio, index) in activeChat.messages" v-bind:class="(messaggio.status == 'sent') ? 'message-sent' : 'message-received'" class="new-message"  :id="'message-' + messageID(messaggio,index)" >
                         <div class="option-message">
                             <p>{{ messaggio.message }}</p>
                             <i class="fas fa-chevron-down" @click="openMenu(messaggio,index)"></i>
