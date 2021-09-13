@@ -72,7 +72,7 @@ const app = new Vue({
             },
             {
                 name: 'Luisa',
-                avatar: '_4',
+                avatar: '_6',
                 visible: true,
                 messages: [{
                     date: '10/01/2020 15:30:55',
@@ -137,7 +137,7 @@ const app = new Vue({
             }
 
             setInterval(this.updateScroll, 100)
-            setTimeout(this.receiveMessage, 1000);
+            setTimeout(this.receiveMessage, 2000);
         },
         updateScroll(){
             var element = document.getElementById("body-chat");

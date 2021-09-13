@@ -22,6 +22,9 @@ body{font-family: 'Lato', sans-serif;}
 .mr{margin-right: 10px;}
 .user-name{font-size: 18px; font-weight: 400; color: rgb(65, 65, 65);}
 
+.color-blue{color: rgb(64, 168, 224);}
+
+
 /* Side common */
 .side{float: left; height: 100%; background-color: white;}
 .side-left{width: 450px; scrollbar-color: black;}
@@ -62,7 +65,7 @@ body{font-family: 'Lato', sans-serif;}
 .contact .last-access{position: absolute; right: 10px; top: 25%; font-size: 12px;}
 .last-message{margin-top: 15px; font-weight: 300; color:rgb(176, 176, 176);}
 
-.fas.fa-check-double {color: rgb(64, 168, 224); font-weight: 600; margin-right: 5px;}
+.last-message > .fas.fa-check-double {color: rgb(64, 168, 224); font-weight: 600; margin-right: 5px;}
 
 /* Header Chat */
 .last-access{color: rgb(165, 165, 165); font-weight: 300; font-size: 14px;}
