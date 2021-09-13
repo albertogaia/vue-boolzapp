@@ -50,4 +50,6 @@ permette di cancellare il messaggio selezionato
 
 • Al cambio dei click per eliminare il messaggio, chiudere il menù a tendina precedente
 
+• Con la listsa filtrada dei contatti sistemare gli orari e apertura chat
+
 

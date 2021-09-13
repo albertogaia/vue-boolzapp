@@ -206,7 +206,7 @@ const app = new Vue({
     },
 
     mounted() {
-        this.activeChat = this.contacts[0],
+        this.activeChat = this.filteredList[0],
         this.lastActivity = this.contacts[0].messages[parseInt(this.contacts[0].messages.length - 1)].date
     },
 
