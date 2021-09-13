@@ -68,7 +68,7 @@ body{font-family: 'Lato', sans-serif;}
 .last-access{color: rgb(165, 165, 165); font-weight: 300; font-size: 14px;}
 
 /* Body Chat */
-.body-chat {width: 100%; height: calc(100% - 80px - 80px); background-image: url('../img/mine.jpg');}
+#body-chat {width: 100%; height: calc(100% - 80px - 80px); background-image: url('../img/mine.jpg'); overflow: scroll;}
 
 .new-message{ padding: 15px 20px; margin: 15px; width: max-content; font-weight: 400; max-width: 70%;}
 .message-received{background-color: white; align-self: flex-start; border-radius: 20px 20px 20px 0px;}

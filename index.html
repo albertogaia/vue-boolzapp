@@ -107,7 +107,7 @@
 
 
 
-                <div class="body-chat flex flex-column clearfix">
+                <div class="flex flex-column clearfix" id="body-chat">
                     <div v-for="(messaggio) in activeChat.messages" v-bind:class="(messaggio.status == 'sent') ? 'message-sent' : 'message-received'" class="new-message">
                         <div class="option-message">
                             <p>{{ messaggio.message }}</p>
@@ -124,7 +124,7 @@
                             <i class="fas fa-laugh-beam icon"></i>
                         </div>
                         <div class="input-chat-text input-txt">
-                            <input type="text" name="" id="" placeholder="Scrivi un messaggio">
+                            <input type="text" name="" id="" v-model="newMessage" placeholder="Scrivi un messaggio" @keyUp.Enter="submitMessage">
                         </div>
                         <div class="icon-mic">
                             <i class="fas fa-microphone icon"></i>
@@ -139,6 +139,7 @@
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

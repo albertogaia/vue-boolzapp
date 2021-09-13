@@ -6,6 +6,8 @@ const app = new Vue({
         activeChat: '',
         activeAvatar: '',
         lastActivity: '',
+        lastTime: '',
+        newMessage: '',
         contacts: [
             {
                 name: 'Michele',
@@ -98,6 +100,10 @@ const app = new Vue({
             // console.log(arrayMessage[parseInt(arrayMessage.length - 1)].message);
             return arrayMessage[parseInt(arrayMessage.length - 1)].message
         },
+        lastSeen(e,i){
+            let userLastActivity = this.contacts[i].messages[parseInt(this.contacts[i].messages.length - 1)].date;
+            this.lastTime = userLastActivity;
+        },
         checkStatus(e,i){
             let statusMessage = this.contacts[i].messages;
 
@@ -113,12 +119,42 @@ const app = new Vue({
 
             let userLastActivity = this.contacts[i].messages[parseInt(this.contacts[i].messages.length - 1)].date;
             this.lastActivity = userLastActivity;
+        },
+        submitMessage(){
 
+            let listMessages = this.activeChat.messages;
+
+            let messageObject = {
+                date: dayjs().date() + '/' + (dayjs().month() + 1) + '/' + dayjs().year() + '  ' + dayjs().hour() + ':' + dayjs().minute() + ':' + dayjs().second(),
+                message: this.newMessage,
+                status: 'sent',
+            }
+
+            if (this.newMessage != '') {
+                listMessages.push(messageObject);
+                this.newMessage = "";
+            }
+
+            setInterval(this.updateScroll, 100)
+            setTimeout(this.receiveMessage, 1000);
         },
-        arrayMessages(){
-            
-            
+        updateScroll(){
+            var element = document.getElementById("body-chat");
+            element.scrollTop = element.scrollHeight - element.clientHeight
         },
+
+        receiveMessage(){
+            let listMessages = this.activeChat.messages;
+
+            let newMessageReceived = {
+                date: dayjs().date() + '/' + (dayjs().month() + 1) + '/' + dayjs().year() + '  ' + dayjs().hour() + ':' + dayjs().minute() + ':' + dayjs().second(),
+                message: 'ok',
+                status: 'received'
+            }
+
+            listMessages.push(newMessageReceived);
+            
+        }
         
     },
     mounted() {
