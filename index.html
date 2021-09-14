@@ -111,7 +111,7 @@
                     <div v-for="(messaggio, index) in activeChat.messages" v-bind:class="(messaggio.status == 'sent') ? 'message-sent' : 'message-received'" class="new-message"  :id="'message-' + messageID(messaggio,index)" >
                         <div class="option-message">
                             <p>{{ messaggio.message }}</p>
-                            <i class="fas fa-chevron-down" @click="openMenu(messaggio,index)"></i>
+                            <i class="fas fa-chevron-down" @click="[openMenu(messaggio,index), updateScroll()]"></i>
                             <div id="options-list">
                                 <ul>
                                     <li>Inoltra</li>

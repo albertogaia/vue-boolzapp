@@ -164,7 +164,7 @@ const app = new Vue({
         },
 
         messageID(e,i){
-            return 'message-' + i;
+            return i;
         },
 
         openMenu(e,i){
@@ -183,25 +183,25 @@ const app = new Vue({
             }else {
                 displayBlockList.style.display = '';
                 iconElement.classList.replace("fa-chevron-up", "fa-chevron-down");
-
             }
         },
 
 
         deleteMessage(e,i){
             this.activeChat.messages.splice(i, 1);
+            this.closeMenu();
         },
 
         getRandomMsg(min, max){
             return Math.floor(Math.random() * (max - min + 1) + min)
         },
 
-        closeMenu(e,i){
+        closeMenu(){
             let myElements = document.querySelectorAll('#options-list')
         
-            // iconElement.classList.replace("fa-chevron-up", "fa-chevron-down")
             myElements.forEach(element => {
-                element.style.display = ''
+                element.style.display = '';
+                iconElement.classList.replace("fa-chevron-up", "fa-chevron-down");
             });
         }
         
