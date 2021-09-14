@@ -47,7 +47,7 @@ permette di cancellare il messaggio selezionato
 
 ⭕️ [FIXARE]
 
-• Scroll in automatico all'ultimo messaggio. Adesso scrolla fino al penultimo
+✅ Scroll in automatico all'ultimo messaggio. Adesso scrolla fino al penultimo
 
 • Al cambio dei click per eliminare il messaggio, chiudere il menù a tendina precedente
 

@@ -138,10 +138,11 @@ const app = new Vue({
                 this.newMessage = "";
             }
 
-            setTimeout(this.receiveMessage, 2000);
-            this.updateScroll();
+            setTimeout(this.updateScroll,100)
+            setTimeout(this.receiveMessage, 1000);
 
         },
+
         updateScroll(){
             var element = document.getElementById("body-chat");
             element.scrollTop = element.scrollHeight - element.clientHeight + 100
@@ -158,7 +159,8 @@ const app = new Vue({
             }
 
             listMessages.push(newMessageReceived);
-            this.updateScroll();
+            setTimeout(this.updateScroll,100)
+
         },
 
         messageID(e,i){
