@@ -43,6 +43,7 @@ permette di cancellare il messaggio selezionato
 
 • Creato array di messaggi che vengono inviati in ordine casuale
 
+-------------------------------
 
 ⭕️ [FIXARE]
 
@@ -50,6 +51,6 @@ permette di cancellare il messaggio selezionato
 
 • Al cambio dei click per eliminare il messaggio, chiudere il menù a tendina precedente
 
-• Con la listsa filtrada dei contatti sistemare gli orari e apertura chat
+✅ Con la lista filtrata dei contatti sistemare gli orari e apertura chat
 
 

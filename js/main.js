@@ -99,27 +99,27 @@ const app = new Vue({
     },
     methods: {
         lastMessage(e,i){
-            let arrayMessage = this.contacts[i].messages;
+            let arrayMessage = this.filteredList[i].messages;
 
             return arrayMessage[parseInt(arrayMessage.length - 1)].message
         },
         lastSeen(e,i){
-            let userLastActivity = this.contacts[i].messages[parseInt(this.contacts[i].messages.length - 1)].date;
+            let userLastActivity = this.filteredList[i].messages[parseInt(this.filteredList[i].messages.length - 1)].date;
             return this.lastTime = userLastActivity;
         },
         checkStatus(e,i){
-            let statusMessage = this.contacts[i].messages;
+            let statusMessage = this.filteredList[i].messages;
 
             return statusMessage[parseInt(statusMessage.length - 1)].status
         },
         getUserName(e,i){
-            let userName = this.contacts[i];
+            let userName = this.filteredList[i];
             this.activeChat = userName;
 
-            let userAvatar = this.contacts[i];
+            let userAvatar = this.filteredList[i];
             this.activeAvatar = userAvatar;
 
-            let userLastActivity = this.contacts[i].messages[parseInt(this.contacts[i].messages.length - 1)].date;
+            let userLastActivity = this.filteredList[i].messages[parseInt(this.contacts[i].messages.length - 1)].date;
             this.lastActivity = userLastActivity;
         },
 
