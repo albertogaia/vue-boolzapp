@@ -65,7 +65,7 @@
                 <!-- Contatti -->
                 <div class="contacts">
 
-                    <div v-for="(contact, index) in filteredList" class="contact flex" @click="[getUserName(contact, index), myFilter(contact,index)]" :class="(contact == activeChat) ? 'active-chat' : null" >
+                    <div v-for="(contact, index) in filteredList" class="contact flex" @click="[getUserName(contact, index)]" :class="(contact == activeChat) ? 'active-chat' : null" >
                         <div class="avatar ml">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="avatar utente">
                         </div>
@@ -133,7 +133,7 @@
                             <i class="fas fa-laugh-beam icon"></i>
                         </div>
                         <div class="input-chat-text input-txt">
-                            <input type="text" name="" id="" v-model="newMessage" placeholder="Scrivi un messaggio" @keyUp.Enter="submitMessage">
+                            <input autofocus type="text" name="" id="" v-model="newMessage" placeholder="Scrivi un messaggio" @keyUp.Enter="submitMessage">
                         </div>
                         <div class="icon-mic">
                             <i class="fas fa-microphone icon"></i>

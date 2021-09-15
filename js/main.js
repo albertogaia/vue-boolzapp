@@ -139,7 +139,16 @@ const app = new Vue({
             }
 
             setTimeout(this.updateScroll,100)
-            setTimeout(this.receiveMessage, 1000);
+            setTimeout(()=>{
+                let newMessageReceived = {
+                    date: dayjs().hour() + ':' + dayjs().minute(),
+                    message: this.messagesRnd[this.getRandomMsg(0,this.messagesRnd.length - 1)],
+                    status: 'received'
+                }
+    
+                listMessages.push(newMessageReceived);
+                setTimeout(this.updateScroll,100)
+            }, 1000);
 
         },
 
@@ -147,20 +156,6 @@ const app = new Vue({
             var element = document.getElementById("body-chat");
             element.scrollTop = element.scrollHeight - element.clientHeight + 100
             // console.log(element.scrollTop)
-        },
-
-        receiveMessage(){
-            let listMessages = this.activeChat.messages;
-
-            let newMessageReceived = {
-                date: dayjs().hour() + ':' + dayjs().minute(),
-                message: this.messagesRnd[this.getRandomMsg(0,this.messagesRnd.length - 1)],
-                status: 'received'
-            }
-
-            listMessages.push(newMessageReceived);
-            setTimeout(this.updateScroll,100)
-
         },
 
         messageID(e,i){
@@ -173,6 +168,7 @@ const app = new Vue({
     
             let iconElement = myElement.children[0].children[1]
             console.log(myElement.children[0].children[1])
+
 
             if(displayBlockList.style.display == ''){
                 displayBlockList.style.display = 'block';
