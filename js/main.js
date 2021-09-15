@@ -159,10 +159,6 @@ const app = new Vue({
             // console.log(element.scrollTop)
         },
 
-        messageID(e,i){
-            return i;
-        },
-
         openMenu(index){
             if(this.activeMessage != index) {
                 this.activeMessage = index
@@ -170,13 +166,14 @@ const app = new Vue({
             else {
                 this.activeMessage = null;  
             }
-            this.closeMenuOutside
+            // this.closeMenuOutside
         },
 
 
         deleteMessage(e,i){
             this.activeChat.messages.splice(i, 1);
             this.closeMenu();
+
         },
 
         getRandomMsg(min, max){
@@ -187,21 +184,7 @@ const app = new Vue({
             this.activeMessage = null;
         },
 
-        closeMenuOutside(){
-            let ignoreClickOnMeElement = document.getElementById('optionMessage');
-            console.log(ignoreClickOnMeElement);
 
-            let body = document.getElementById('body-chat')
-            console.log(body)
-            console.log(this.activeMessage)
-
-            document.addEventListener('click', function(event) {
-                console.log(event.target)
-                if(event.target == body){
-                    this.activeMessage = null
-                }
-            });
-        },
         
     },
 
@@ -217,6 +200,24 @@ const app = new Vue({
           })
         },
         
-    }
+        closeMenuOutside(){
+            let body = document.getElementById('body-chat')
+            console.log(body)
+            let activeMESSAGE = this.activeMessage
+
+            document.addEventListener('click', function(event) {
+                console.log(event.target)
+                
+
+                if(event.target == body || isNaN(activeMESSAGE) == false){
+                    console.log(activeMESSAGE)
+                    activeMESSAGE = null
+                    this.activeMessage = activeMESSAGE
+                    console.log(this.activeMessage)
+                }
+            });
+        },  
+    },
+
 })
 
