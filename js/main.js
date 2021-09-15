@@ -4,6 +4,7 @@ const app = new Vue({
     el: '#root',
     data: {
         activeChat: '',
+        activeMessage: null,
         activeAvatar: '',
         lastActivity: '',
         lastTime: '',
@@ -162,24 +163,14 @@ const app = new Vue({
             return i;
         },
 
-        openMenu(e,i){
-            let myElement = document.getElementById('message-' + this.messageID(e,i));
-            let displayBlockList = myElement.children[0].lastChild;
-    
-            let iconElement = myElement.children[0].children[1]
-            console.log(myElement.children[0].children[1])
-
-
-            if(displayBlockList.style.display == ''){
-                displayBlockList.style.display = 'block';
-                console.log(displayBlockList.classList)
-                iconElement.classList.replace("fa-chevron-down", "fa-chevron-up");
-                
-
-            }else {
-                displayBlockList.style.display = '';
-                iconElement.classList.replace("fa-chevron-up", "fa-chevron-down");
+        openMenu(index){
+            if(this.activeMessage != index) {
+                this.activeMessage = index
             }
+            else {
+                this.activeMessage = null;  
+            }
+            this.closeMenuOutside
         },
 
 
@@ -193,13 +184,24 @@ const app = new Vue({
         },
 
         closeMenu(){
-            let myElements = document.querySelectorAll('#options-list')
-        
-            myElements.forEach(element => {
-                element.style.display = '';
-                iconElement.classList.replace("fa-chevron-up", "fa-chevron-down");
+            this.activeMessage = null;
+        },
+
+        closeMenuOutside(){
+            let ignoreClickOnMeElement = document.getElementById('optionMessage');
+            console.log(ignoreClickOnMeElement);
+
+            let body = document.getElementById('body-chat')
+            console.log(body)
+            console.log(this.activeMessage)
+
+            document.addEventListener('click', function(event) {
+                console.log(event.target)
+                if(event.target == body){
+                    this.activeMessage = null
+                }
             });
-        }
+        },
         
     },
 
@@ -213,17 +215,8 @@ const app = new Vue({
           return this.contacts.filter(contact => {
             return contact.name.toLowerCase().includes(this.search.toLowerCase())
           })
-        }
+        },
+        
     }
 })
 
-
-
-// window.addEventListener('click', ()=>{
-//     let myElements = document.querySelectorAll('#options-list')
-
-//     // iconElement.classList.replace("fa-chevron-up", "fa-chevron-down")
-//     myElements.forEach(element => {
-//         element.style.display = ''
-//     });
-// })

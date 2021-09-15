@@ -14,7 +14,7 @@
 <body class="debug">
     <div class="container" id="root">
 
-        <div class="wrapper" onclick="">
+        <div class="wrapper" :click="closeMenuOutside">
 
             <!-- PARTE SINISTRA -->
             <div class="side side-left">
@@ -65,7 +65,7 @@
                 <!-- Contatti -->
                 <div class="contacts">
 
-                    <div v-for="(contact, index) in filteredList" class="contact flex" @click="[getUserName(contact, index)]" :class="(contact == activeChat) ? 'active-chat' : null" >
+                    <div v-for="(contact, index) in filteredList" class="contact flex" @click="[getUserName(contact, index), closeMenu()]" :class="(contact == activeChat) ? 'active-chat' : null" >
                         <div class="avatar ml">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="avatar utente">
                         </div>
@@ -88,7 +88,7 @@
 
             <!-- PARTE DESTRA -->
             <div class="side side-right">
-                <div class="header head-chat" @click="arrayMessages()">
+                <div class="header head-chat">
                     <div class="user-info flex">
                         <div class="avatar ml">
                             <img :src="'img/avatar' + activeChat.avatar + '.jpg'" alt="avatar utente">
@@ -108,14 +108,14 @@
 
 
                 <div class="flex flex-column" id="body-chat">
-                    <div v-for="(messaggio, index) in activeChat.messages" v-bind:class="(messaggio.status == 'sent') ? 'message-sent' : 'message-received'" class="new-message"  :id="'message-' + messageID(messaggio,index)" >
+                    <div v-for="(messaggio, index) in activeChat.messages" v-bind:class="(messaggio.status == 'sent') ? 'message-sent' : 'message-received'" class="new-message"  :id="'message-' + messageID(messaggio,index)" id="optionMessage">
                         <div class="option-message">
                             <p>{{ messaggio.message }}</p>
-                            <i class="fas fa-chevron-down" @click="[openMenu(messaggio,index), updateScroll()]"></i>
-                            <div id="options-list">
+                            <i @click="openMenu(index)" :class="activeMessage == index ? 'fas fa-chevron-up' : 'fas fa-chevron-down'"></i>
+                            <div v-if="activeMessage == index" id="options-list">
                                 <ul>
                                     <li>Inoltra</li>
-                                    <li @click="deleteMessage(messaggio, index)" >Elimina</li>
+                                    <li @click="deleteMessage(messaggio, index)">Elimina</li>
                                     <li>Informazioni</li>
                                 </ul>
                             </div>
